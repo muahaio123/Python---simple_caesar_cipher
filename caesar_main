@@ -10,14 +10,14 @@ print('''                                      _       _
 def caesar(mesg, shift, mod):
     new_mssg = ''
     
+    if mod == 'decode':
+        shift *= -1
+        
     for ch in mesg:
         if ch not in alphabet:
             new_mssg += ch
         else:
-            if mod == 'encode':
-                new_mssg += alphabet[(alphabet.index(ch) + shift) % 26]
-            else:
-                new_mssg += alphabet[(alphabet.index(ch) - shift) % 26]
+            new_mssg += alphabet[(alphabet.index(ch) + shift) % 26]
             
     print(new_mssg)
 
